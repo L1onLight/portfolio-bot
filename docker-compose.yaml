@@ -1,0 +1,13 @@
+version: '3.4'
+
+
+services:
+    bot:
+        build: .
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./app:/app
+        environment:
+            - BOT_TOKEN=${BOT_TOKEN}
+        command: ["python3", "./app/main.py"]

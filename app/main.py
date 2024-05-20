@@ -10,16 +10,13 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
-from aiogram.methods import GetUpdates
-from aiogram.types import Message, CallbackQuery, InputFile, FSInputFile
+from aiogram.types import Message, CallbackQuery, FSInputFile
 from dotenv import load_dotenv
 
-import keyboards
 import info
-
+import keyboards
 from config import data_path, cv_path, cv_url
 from service import get_repo_by_name
-from db import session
 
 load_dotenv()
 # Bot token can be obtained via https://t.me/BotFather

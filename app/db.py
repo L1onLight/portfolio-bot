@@ -1,10 +1,9 @@
 import csv
 import os
-from typing import List
-from typing import Optional
-from sqlalchemy import ForeignKey, create_engine
+
 from sqlalchemy import String
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, sessionmaker
+from sqlalchemy import create_engine
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
 from config import abs_path
 

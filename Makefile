@@ -8,3 +8,5 @@ docker_build:
 
 docker_up:
 	docker compose up
+run:
+	python ./app/main.py

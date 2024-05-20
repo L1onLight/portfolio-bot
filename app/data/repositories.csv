@@ -1,0 +1,5 @@
+name;description;technologies;url
+Project-Enigma;Blog-site;Django, Django-Rest-Framework, DRF-Spectacular;https://github.com/L1onLight/project-enigma/
+tg-support bot;Telegram support bot, for support agent and customer;python-telegram-bot, peewee;https://github.com/L1onLight/tg-support/
+Django-Realty;Django-based Real Estate site;Django, Django-Rest-Framework, PostgreSQL, Pillow, gunicorn;https://github.com/L1onLight/django-realty/
+Portfolio-Bot;Telegram bot to show portfolio;Python, Aiogram, SQLite, SQLAlchemy, Docker;https://github.com/L1onLight/portfolio-bot/

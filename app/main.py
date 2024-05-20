@@ -22,7 +22,6 @@ load_dotenv()
 # Bot token can be obtained via https://t.me/BotFather
 TOKEN = getenv("BOT_TOKEN")
 
-# All handlers should be attached to the Router (or Dispatcher)
 dp = Dispatcher()
 
 
@@ -84,13 +83,10 @@ async def repo(callback: CallbackQuery) -> None:
     repo = get_repo_by_name(repo_name)
     await callback.message.edit_text(text=repo.get_repo_info(), parse_mode=ParseMode.HTML,
                                      reply_markup=keyboards.REPOSITORY)
-    # await callback.message.edit_text(get_repo_info(repo_name), reply_markup=keyboards.BACK)
 
 
 async def main() -> None:
-    # Initialize Bot instance with default bot properties which will be passed to all API calls
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.MARKDOWN_V2))
-    # And the run events dispatching
     await dp.start_polling(bot)
 
 

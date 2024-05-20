@@ -1,6 +1,6 @@
 ## Aiogram Portfolio-bot
 
-A telegram bot built with Python using Aiogram library.
+A telegram bot built with Python using the Aiogram library to showcase author's portfolio.
 
 Running on Oracle Cloud.
 

@@ -9,6 +9,7 @@ import requests
 from aiogram import Bot, Dispatcher, F
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters import CommandStart
 from aiogram.types import Message, CallbackQuery, FSInputFile
 from dotenv import load_dotenv
@@ -39,12 +40,16 @@ def get_or_download_cv():
 async def command_start_handler(message_or_callback: Message | CallbackQuery) -> None:
     text = f"Welcome to Botfolio, %s\\!" % message_or_callback.from_user.first_name  # noqa
     if isinstance(message_or_callback, CallbackQuery):
-        message_or_callback: CallbackQuery
-        if message_or_callback.message.text:
-            await message_or_callback.message.edit_text(text,
-                                                        reply_markup=keyboards.HELLO)
-        else:
-            await message_or_callback.message.delete()
+        try:
+            message_or_callback: CallbackQuery
+            if message_or_callback.message.text:
+                await message_or_callback.message.edit_text(text,
+                                                            reply_markup=keyboards.HELLO)
+            else:
+                await message_or_callback.message.delete()
+                await message_or_callback.message.answer(text,
+                                                         reply_markup=keyboards.HELLO)
+        except TelegramBadRequest:
             await message_or_callback.message.answer(text,
                                                      reply_markup=keyboards.HELLO)
     else:
